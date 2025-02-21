@@ -50,7 +50,7 @@ export default function Quiz() {
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
                 {showResult ? (
                     <div>
-                        <h2 className="text-2xl font-bold mb-4">Quiz Finished!</h2>
+                        <h1 className="text-2xl font-bold mb-4">Quiz Finished!</h1>
                         <p className="text-lg">Your Score: {score} / {quizData.length}</p>
                         <button
                             onClick={() => {
