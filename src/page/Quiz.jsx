@@ -11,7 +11,7 @@ export default function Quiz() {
     const [newAnswer, setNewAnswer] = useState("");
 
     useEffect(() => {
-        if (timeLeft === 0 && quizData.length > 0) {
+        if (timeLeft === 0 && quizData.length >5 ) {
             handleNextQuestion();
         }
         const timer = setInterval(() => {
