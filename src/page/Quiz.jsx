@@ -29,7 +29,7 @@ const quizData = [
     {
         question: "Which one does she likes more :Ice-cream or Chocolate?",
         options: ["Ice-cream", "Chocolate", "Why would she choose when she could have both?", "Chocolate"],
-        answer: "Why would she choose when she could haqve both?",
+        answer: "Why would she choose when she could have both?",
     },
     {
         question: "Which do you think is the life she wanna live?",
