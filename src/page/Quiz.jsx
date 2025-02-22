@@ -47,7 +47,7 @@ export default function Quiz() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-            <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+            <div className="bg-purple-500 p-6 rounded-lg shadow-lg max-w-md w-full text-center">
                 {showResult ? (
                     <div>
                         <h1 className="text-2xl font-bold mb-4">Quiz Finished!</h1>
