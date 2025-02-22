@@ -1,33 +1,72 @@
 import { useState, useEffect } from "react";
 
+const quizData = [
+    {
+        question: "which is your favourite season?",
+        options: ["Winter", "Summer", "Spring", "Autumn", "Rainy"],
+        answer: "Rainy",
+    },
+    {
+        question: "What is your age?",
+        options: ["18", "21", "19 turning 20", "48"],
+        answer: "19 turning 20",
+    },
+    {
+        question: "What is your favourite color?",
+        options: ["red", "white", "pink", "she doesn't know"],
+        answer: "she doesn't know",
+    },
+    {
+        question: "What is her favourite makeup product?",
+        options: ["Lipstick", "Blush", "Mascara", "Eyeshadow"],
+        answer: "Lipstick",
+    },
+    {
+        question: "What is she scared of ?",
+        options: ["Losing people she loves", "Getting old", "Everything", "nothing, everyone else is scared of her"],
+        answer: "Everything",
+    },
+    {
+        question: "Which one does she likes more :Ice-cream or Chocolate?",
+        options: ["Ice-cream", "Chocolate", "Why would she choose when she could have both?", "Chocolate"],
+        answer: "Why would she choose when she could haqve both?",
+    },
+    {
+        question: "Which do you think is the life she wanna live?",
+        options: ["Busy, the city life ", "Typical nepali life", " kinda peacefull life gardening and keeping animals"],
+        answer: "kinda peacefull life gardening and keeping animals",
+    },
+    {
+        question: "What is her comfort food?",
+        options: ["MOMO", "Dal Bhat aalu fry", "chatpate"],
+        answer: "Dal Bhat aalu fry",
+    },
+];
+
 export default function Quiz() {
-    const [quizData, setQuizData] = useState([]);
+   
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
     const [timeLeft, setTimeLeft] = useState(10);
-    const [newQuestion, setNewQuestion] = useState("");
-    const [newOptions, setNewOptions] = useState(["", "", "", ""]);
-    const [newAnswer, setNewAnswer] = useState("");
-
+   
     useEffect(() => {
-        if (timeLeft === 0 && quizData.length >5 ) {
-            handleNextQuestion();
+        if (timeLeft > 0) {
+            const timer = setTimeout(() => setTimeLeft(timeleft - 1), 1000);
+            return () => clearTimeout(timer);
+           
         }
-        const timer = setInterval(() => {
-            setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-        }, 1000);
-        return () => clearInterval(timer);
-    }, [timeLeft, quizData]);
+        else {
+            handleAnswer(null);
+        }
+       
+    }, [timeLeft]);
+    
 
     const handleAnswer = (selectedOption) => {
         if (selectedOption === quizData[currentQuestion].answer) {
             setScore(score + 1);
         }
-        handleNextQuestion();
-    };
-
-    const handleNextQuestion = () => {
         const nextQuestion = currentQuestion + 1;
         if (nextQuestion < quizData.length) {
             setCurrentQuestion(nextQuestion);
@@ -36,14 +75,10 @@ export default function Quiz() {
             setShowResult(true);
         }
     };
+        
+    
 
-    const addNewQuestion = () => {
-        if (!newQuestion || newOptions.some(opt => !opt) || !newAnswer) return;
-        setQuizData([...quizData, { question: newQuestion, options: newOptions, answer: newAnswer }]);
-        setNewQuestion("");
-        setNewOptions(["", "", "", ""]);
-        setNewAnswer("");
-    };
+   
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
@@ -64,7 +99,7 @@ export default function Quiz() {
                             Restart Quiz
                         </button>
                     </div>
-                ) : quizData.length > 0 ? (
+                ) : (
                     <div>
                         <h2 className="text-xl font-bold mb-4">{quizData[currentQuestion].question}</h2>
                         <p className="text-red-500 font-bold mb-2">Time left: {timeLeft}s</p>
@@ -80,44 +115,7 @@ export default function Quiz() {
                             ))}
                         </div>
                     </div>
-                ) : (
-                    <div>
-                        <h2 className="text-xl font-bold mb-4">Add Your Own Question</h2>
-                        <input
-                            type="text"
-                            placeholder="Enter your question"
-                            value={newQuestion}
-                            onChange={(e) => setNewQuestion(e.target.value)}
-                            className="border p-2 w-full mb-2"
-                        />
-                        {newOptions.map((option, index) => (
-                            <input
-                                key={index}
-                                type="text"
-                                placeholder={`Option ${index + 1}`}
-                                value={option}
-                                onChange={(e) => {
-                                    const updatedOptions = [...newOptions];
-                                    updatedOptions[index] = e.target.value;
-                                    setNewOptions(updatedOptions);
-                                }}
-                                className="border p-2 w-full mb-2"
-                            />
-                        ))}
-                        <input
-                            type="text"
-                            placeholder="Enter correct answer"
-                            value={newAnswer}
-                            onChange={(e) => setNewAnswer(e.target.value)}
-                            className="border p-2 w-full mb-2"
-                        />
-                        <button
-                            onClick={addNewQuestion}
-                            className="mt-2 bg-green-500 text-white px-4 py-2 rounded-lg"
-                        >
-                            Add Question
-                        </button>
-                    </div>
+                
                 )}
             </div>
         </div>
