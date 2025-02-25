@@ -100,7 +100,7 @@ export default function Quiz() {
                                 setShowResult(false);
                                 setTimeLeft(10);
                             }}
-                            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg"
+                            className="mt-4 bg-purple-400  text-white px-4 py-2 rounded-lg hover:bg-pink-400"
                         >
                             Restart Quiz
                         </button>
@@ -114,7 +114,7 @@ export default function Quiz() {
                                 <button
                                     key={index}
                                     onClick={() => handleAnswer(option)}
-                                    className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
+                                    className="bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-amber-400/500"
                                 >
                                     {option}
                                 </button>
