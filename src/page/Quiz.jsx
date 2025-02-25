@@ -23,13 +23,13 @@ const quizData = [
     },
     {
         question: "What am I scared of ?",
-        options: ["Losing people she loves", "Getting old", "Everything", "nothing, everyone else is scared of her"],
+        options: ["Losing people I love", "Getting old", "Everything", "nothing, everyone else is scared of me"],
         answer: "Everything",
     },
     {
         question: "Which one do I like  more :Ice-cream or Chocolate?",
-        options: ["Ice-cream", "Chocolate", "Why would she choose when she could have both?", "Chocolate"],
-        answer: "Why would she choose when she could have both?",
+        options: ["Ice-cream", "Chocolate", "Why would I choose when I could have both?", "Chocolate"],
+        answer: "Why would I choose when I could have both?",
     },
     {
        
@@ -91,7 +91,7 @@ export default function Quiz() {
             <div className="bg-pink-300 p-6 rounded-lg shadow-lg max-w-md w-full text-center">
                 {showResult ? (
                     <div>
-                        <h1 className="text-2xl font-bold mb-4">Quiz Finished!</h1>
+                        <h1 className="text-2xl font-bold mb-4">Quiz Completed!</h1>
                         <p className="text-lg">Your Score: {score} / {quizData.length}</p>
                         <button
                             onClick={() => {

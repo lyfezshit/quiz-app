@@ -1,7 +1,7 @@
 export const Footer = () => {
     return (
         <footer className="bg-pink-100">
-            <p>&copy;{new Date().getFullYear() }Your website name</p>
+            <p>&copy;{new Date().getFullYear() }Preuba</p>
         </footer>
     );
 }
