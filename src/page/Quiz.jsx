@@ -2,44 +2,50 @@ import { useState, useEffect } from "react";
 
 const quizData = [
     {
-        question: "which is your favourite season?",
+        question: "which is my favourite season?",
         options: ["Winter", "Summer", "Spring", "Autumn", "Rainy"],
         answer: "Rainy",
     },
     {
-        question: "What is your age?",
+        question: "What is my age?",
         options: ["18", "21", "19 turning 20", "48"],
         answer: "19 turning 20",
     },
     {
-        question: "What is your favourite color?",
+        question: "What is my favourite color?",
         options: ["red", "white", "pink", "she doesn't know"],
         answer: "she doesn't know",
     },
     {
-        question: "What is her favourite makeup product?",
+        question: "What is my favourite makeup product?",
         options: ["Lipstick", "Blush", "Mascara", "Eyeshadow"],
         answer: "Lipstick",
     },
     {
-        question: "What is she scared of ?",
+        question: "What am I scared of ?",
         options: ["Losing people she loves", "Getting old", "Everything", "nothing, everyone else is scared of her"],
         answer: "Everything",
     },
     {
-        question: "Which one does she likes more :Ice-cream or Chocolate?",
+        question: "Which one do I like  more :Ice-cream or Chocolate?",
         options: ["Ice-cream", "Chocolate", "Why would she choose when she could have both?", "Chocolate"],
         answer: "Why would she choose when she could have both?",
     },
     {
-        question: "Which do you think is the life she wanna live?",
-        options: ["Busy, the city life ", "Typical nepali life", " kinda peacefull life gardening and keeping animals"],
-        answer: "kinda peacefull life gardening and keeping animals",
+       
+        question: "What do I like doing the most?",
+        options: ["Dancing", "Very Difficult choice, can't choose", "Cooking", "Makeup"],
+        answer:"Very Difficult choice,can't chooose",
     },
     {
-        question: "What is her comfort food?",
+        question: "What is my comfort food?",
         options: ["MOMO", "Dal Bhat aalu fry", "chatpate"],
         answer: "Dal Bhat aalu fry",
+    },
+    {
+        question: "Who is my favourite music Artist?",
+        options: ["Lana Del Rey", "Billie Eilish", "Harry Styles", "All of the above"],
+        answer:"All of the above",
     },
 ];
 
@@ -82,7 +88,7 @@ export default function Quiz() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-            <div className="bg-purple-500 p-6 rounded-lg shadow-lg max-w-md w-full text-center">
+            <div className="bg-pink-300 p-6 rounded-lg shadow-lg max-w-md w-full text-center">
                 {showResult ? (
                     <div>
                         <h1 className="text-2xl font-bold mb-4">Quiz Finished!</h1>
