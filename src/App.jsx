@@ -1,27 +1,23 @@
-
 import React from "react";
-import Home from "./page/Home";
-import Quiz from "./page/Quiz";
-import Navbar from "./page/Navbar";
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import Quiz from "./pages/Quiz";
+import Navbar from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-    const router = createBrowserRouter([
-        {
-            path:"/",
-            element:<><Navbar/><Home/></>
-        },
-        { 
-            path: "/quiz",
-            element:<><Navbar/><Quiz/></>
-        },
-    ])
-    
-    return <>
-       
-        <RouterProvider router={router} />
-        <Footer></Footer>
-      
+  return (
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/quiz" element={<Quiz />} />
+        </Routes>
+        <Footer />
+      </Router>
     </>
+  );
 }
+
 export default App;
