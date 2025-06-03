@@ -76,7 +76,7 @@ export default function Quiz() {
 
   useEffect(() => {
     if (timeLeft > 0) {
-      const timer = setTimeout(() => setTimeLeft(timeleft - 1), 1000);
+      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
       return () => clearTimeout(timer);
     } else {
       handleAnswer(null);
